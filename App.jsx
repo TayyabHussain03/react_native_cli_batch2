@@ -5,7 +5,7 @@ export class App extends Component {
   render() {
     return (
       <View style={{flex:1, justifyContent:"center", alignItems:"center", backgroundColor:"black"}} >
-        <Text style={{fontSize: 32, textAlign: "center", color:"red"}} >Tayyab</Text>
+        <Text style={{fontSize: 32, color:"red", textTransform:"uppercase"}} >tayyab hussain</Text>
       </View>
     )
   }
