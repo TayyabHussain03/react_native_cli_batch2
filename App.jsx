@@ -5,6 +5,7 @@ import JSX from './src/components/JSX'
 import UseStateHook from './src/components/UseStateHook'
 import PropTest from './src/components/PropTest'
 import InputText from './src/components/InputText.jsx'
+import Styling from './src/components/Styling.jsx'
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       {/* <JSX /> */}
       {/* <UseStateHook /> */}
       {/* <PropTest/> */}
-      <InputText />
+      {/* <InputText /> */}
+      <Styling/>
     </View>
   )
 }
