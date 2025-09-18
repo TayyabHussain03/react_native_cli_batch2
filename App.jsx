@@ -6,17 +6,19 @@ import UseStateHook from './src/components/UseStateHook'
 import PropTest from './src/components/PropTest'
 import InputText from './src/components/InputText.jsx'
 import Styling from './src/components/Styling.jsx'
+import FlatListScreen from './src/components/FlatListScreen.jsx'
 
 const App = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "white" }} >
+    <View style={{ flex: 1,backgroundColor: "white" }} >
       {/* <Text style={{ fontSize: 24, color: "red", textTransform: "uppercase" }} >tayyab hussain</Text> */}
       {/* <MyButton /> */}
       {/* <JSX /> */}
       {/* <UseStateHook /> */}
       {/* <PropTest/> */}
       {/* <InputText /> */}
-      <Styling/>
+      {/* <Styling/> */}
+      <FlatListScreen/>
     </View>
   )
 }
