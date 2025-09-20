@@ -10,6 +10,7 @@ import FlatListScreen from './src/components/FlatListScreen.jsx'
 import SectionListScreen from './src/components/SectionListScreen.jsx'
 import Login from './src/components/Login.jsx'
 import UserContact from './src/screens/ContactList/UserContact.jsx'
+import Grid from './src/components/Grid.jsx'
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
       {/* <FlatListScreen/> */}
       {/* <SectionListScreen/> */}
       {/* <Login /> */}
-      <UserContact />
+      {/* <UserContact /> */}
+      <Grid/>
     </View>
   )
 }
