@@ -8,10 +8,11 @@ import InputText from './src/components/InputText.jsx'
 import Styling from './src/components/Styling.jsx'
 import FlatListScreen from './src/components/FlatListScreen.jsx'
 import SectionListScreen from './src/components/SectionListScreen.jsx'
+import Login from './src/components/Login.jsx'
 
 const App = () => {
   return (
-    <View style={{ flex: 1,backgroundColor: "white" }} >
+    <View style={{ flex: 1, backgroundColor: "white" }} >
       {/* <Text style={{ fontSize: 24, color: "red", textTransform: "uppercase" }} >tayyab hussain</Text> */}
       {/* <MyButton /> */}
       {/* <JSX /> */}
@@ -20,7 +21,8 @@ const App = () => {
       {/* <InputText /> */}
       {/* <Styling/> */}
       {/* <FlatListScreen/> */}
-      <SectionListScreen/>
+      {/* <SectionListScreen/> */}
+      <Login />
     </View>
   )
 }
