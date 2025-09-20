@@ -7,6 +7,7 @@ import PropTest from './src/components/PropTest'
 import InputText from './src/components/InputText.jsx'
 import Styling from './src/components/Styling.jsx'
 import FlatListScreen from './src/components/FlatListScreen.jsx'
+import SectionListScreen from './src/components/SectionListScreen.jsx'
 
 const App = () => {
   return (
@@ -18,7 +19,8 @@ const App = () => {
       {/* <PropTest/> */}
       {/* <InputText /> */}
       {/* <Styling/> */}
-      <FlatListScreen/>
+      {/* <FlatListScreen/> */}
+      <SectionListScreen/>
     </View>
   )
 }
