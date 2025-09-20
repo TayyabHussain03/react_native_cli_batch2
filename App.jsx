@@ -9,6 +9,7 @@ import Styling from './src/components/Styling.jsx'
 import FlatListScreen from './src/components/FlatListScreen.jsx'
 import SectionListScreen from './src/components/SectionListScreen.jsx'
 import Login from './src/components/Login.jsx'
+import UserContact from './src/screens/ContactList/UserContact.jsx'
 
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
       {/* <Styling/> */}
       {/* <FlatListScreen/> */}
       {/* <SectionListScreen/> */}
-      <Login />
+      {/* <Login /> */}
+      <UserContact />
     </View>
   )
 }
