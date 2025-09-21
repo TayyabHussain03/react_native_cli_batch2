@@ -11,6 +11,7 @@ import SectionListScreen from './src/components/SectionListScreen.jsx'
 import Login from './src/components/Login.jsx'
 import UserContact from './src/screens/ContactList/UserContact.jsx'
 import Grid from './src/components/Grid.jsx'
+import UseEffectHook from './src/components/UseEffectHook.jsx'
 
 const App = () => {
   return (
@@ -26,7 +27,8 @@ const App = () => {
       {/* <SectionListScreen/> */}
       {/* <Login /> */}
       {/* <UserContact /> */}
-      <Grid/>
+      {/* <Grid/> */}
+      <UseEffectHook/>
     </View>
   )
 }

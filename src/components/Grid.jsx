@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     gridItem: {
         width: '48%', // Two items per row
         height: 100,
-        backgroundColor: '#bf4150',
+        backgroundColor: '#f26f3e',
         padding: 20,
         marginBottom: 16,
-        borderRadius: 8,
+        borderRadius: 20,
         justifyContent: "center",
         shadowColor: "#000",
         shadowOffset: {
