@@ -12,6 +12,8 @@ import Login from './src/components/Login.jsx'
 import UserContact from './src/screens/ContactList/UserContact.jsx'
 import Grid from './src/components/Grid.jsx'
 import UseEffectHook from './src/components/UseEffectHook.jsx'
+import UseEffectUnmounting from './src/components/UseEffectUnmounting.jsx'
+import StylingButton from './src/components/StylingButton.jsx'
 
 const App = () => {
   return (
@@ -28,7 +30,9 @@ const App = () => {
       {/* <Login /> */}
       {/* <UserContact /> */}
       {/* <Grid/> */}
-      <UseEffectHook/>
+      {/* <UseEffectHook/> */}
+      {/* <UseEffectUnmounting/> */}
+      <StylingButton/>
     </View>
   )
 }
