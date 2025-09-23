@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const UseRefExample = () => {
+    const [isYellow, setIsYellow] = useState(true);
+
   // ✅ useRef hook creates a mutable reference object
   const inputRef = useRef(null);
 
@@ -14,11 +16,19 @@ const UseRefExample = () => {
   };
 
   const handleStyleChange = () => {
-    // ✅ Directly modifying native element style (works in web, limited in React Native)
-    inputRef.current?.setNativeProps({
-      style: { backgroundColor: '#ffeaa7', color: '#2d3436' }
-    });
+    if (inputRef.current) {
+      inputRef.current.setNativeProps({
+        style: {
+          backgroundColor: isYellow ? 'white' : '#ffeaa7',
+          color: '#2d3436'
+        }
+      });
+
+      // ✅ Toggle state for next press
+      setIsYellow(!isYellow);
+    }
   };
+
 
   return (
     <View style={styles.container}>
@@ -69,7 +79,9 @@ const styles = StyleSheet.create({
       padding: 12,
       marginBottom: 20,
       fontSize: 16,
-      color: '#2d3436'
+      color: '#2d3436',
+      backgroundColor: '#ffeaa7' // ✅ Initial color
+
     },
     button: {
       backgroundColor: '#0984e3',
