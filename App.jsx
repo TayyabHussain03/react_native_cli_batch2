@@ -17,6 +17,7 @@ import StylingButton from './src/components/StylingButton.jsx'
 import LoaderToggle from './src/components/LoaderToggle.jsx'
 import Presable from './src/components/Presable.jsx'
 import StatusBarComponent from './src/components/StatusBarComponent.jsx'
+import UseRefExample from './src/components/UseRefExample.jsx'
 
 const App = () => {
   return (
@@ -38,7 +39,8 @@ const App = () => {
       {/* <StylingButton/> */}
       {/* <LoaderToggle/> */}
       {/* <Presable/> */}
-      <StatusBarComponent/>
+      {/* <StatusBarComponent/> */}
+      <UseRefExample/>
     </View>
   )
 }
