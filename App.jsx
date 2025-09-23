@@ -16,6 +16,7 @@ import UseEffectUnmounting from './src/components/UseEffectUnmounting.jsx'
 import StylingButton from './src/components/StylingButton.jsx'
 import LoaderToggle from './src/components/LoaderToggle.jsx'
 import Presable from './src/components/Presable.jsx'
+import StatusBarComponent from './src/components/StatusBarComponent.jsx'
 
 const App = () => {
   return (
@@ -36,7 +37,8 @@ const App = () => {
       {/* <UseEffectUnmounting/> */}
       {/* <StylingButton/> */}
       {/* <LoaderToggle/> */}
-      <Presable/>
+      {/* <Presable/> */}
+      <StatusBarComponent/>
     </View>
   )
 }
