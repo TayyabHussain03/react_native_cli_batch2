@@ -15,6 +15,7 @@ import UseEffectHook from './src/components/UseEffectHook.jsx'
 import UseEffectUnmounting from './src/components/UseEffectUnmounting.jsx'
 import StylingButton from './src/components/StylingButton.jsx'
 import LoaderToggle from './src/components/LoaderToggle.jsx'
+import Presable from './src/components/Presable.jsx'
 
 const App = () => {
   return (
@@ -34,7 +35,8 @@ const App = () => {
       {/* <UseEffectHook/> */}
       {/* <UseEffectUnmounting/> */}
       {/* <StylingButton/> */}
-      <LoaderToggle/>
+      {/* <LoaderToggle/> */}
+      <Presable/>
     </View>
   )
 }
