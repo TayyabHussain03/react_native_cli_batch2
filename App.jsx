@@ -18,6 +18,8 @@ import LoaderToggle from './src/components/LoaderToggle.jsx'
 import Presable from './src/components/Presable.jsx'
 import StatusBarComponent from './src/components/StatusBarComponent.jsx'
 import UseRefExample from './src/components/UseRefExample.jsx'
+import ModalDialogBox from './src/components/ModalDialogBox.jsx'
+import AlertExample from './src/components/AlertExample.jsx'
 
 const App = () => {
   return (
@@ -40,7 +42,9 @@ const App = () => {
       {/* <LoaderToggle/> */}
       {/* <Presable/> */}
       {/* <StatusBarComponent/> */}
-      <UseRefExample/>
+      {/* <UseRefExample/> */}
+      {/* <ModalDialogBox/> */}
+      <AlertExample/>
     </View>
   )
 }
