@@ -20,6 +20,7 @@ import StatusBarComponent from './src/components/StatusBarComponent.jsx'
 import UseRefExample from './src/components/UseRefExample.jsx'
 import ModalDialogBox from './src/components/ModalDialogBox.jsx'
 import AlertExample from './src/components/AlertExample.jsx'
+import GET_API from './src/components/GET_API.jsx'
 
 const App = () => {
   return (
@@ -44,7 +45,8 @@ const App = () => {
       {/* <StatusBarComponent/> */}
       {/* <UseRefExample/> */}
       {/* <ModalDialogBox/> */}
-      <AlertExample/>
+      {/* <AlertExample/> */}
+      <GET_API/>
     </View>
   )
 }
