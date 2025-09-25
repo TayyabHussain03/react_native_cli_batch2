@@ -21,6 +21,7 @@ import UseRefExample from './src/components/UseRefExample.jsx'
 import ModalDialogBox from './src/components/ModalDialogBox.jsx'
 import AlertExample from './src/components/AlertExample.jsx'
 import GET_API from './src/components/GET_API.jsx'
+import POST_API from './src/components/POST_API.jsx'
 
 const App = () => {
   return (
@@ -46,7 +47,8 @@ const App = () => {
       {/* <UseRefExample/> */}
       {/* <ModalDialogBox/> */}
       {/* <AlertExample/> */}
-      <GET_API/>
+      {/* <GET_API/> */}
+      <POST_API />
     </View>
   )
 }
