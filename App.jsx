@@ -24,6 +24,7 @@ import GET_API from './src/components/GET_API.jsx'
 import POST_API from './src/components/POST_API.jsx'
 import PUT_API from './src/components/PUT_API.jsx'
 import PATCH_API from './src/components/PATCH_API.jsx'
+import DELETE_API from './src/components/DELETE_API.jsx'
 
 const App = () => {
   return (
@@ -52,7 +53,8 @@ const App = () => {
       {/* <GET_API/> */}
       {/* <POST_API /> */}
       {/* <PUT_API /> */}
-      <PATCH_API />
+      {/* <PATCH_API /> */}
+      <DELETE_API />
     </View>
   )
 }
