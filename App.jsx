@@ -22,6 +22,7 @@ import ModalDialogBox from './src/components/ModalDialogBox.jsx'
 import AlertExample from './src/components/AlertExample.jsx'
 import GET_API from './src/components/GET_API.jsx'
 import POST_API from './src/components/POST_API.jsx'
+import PUT_API from './src/components/PUT_API.jsx'
 
 const App = () => {
   return (
@@ -48,7 +49,8 @@ const App = () => {
       {/* <ModalDialogBox/> */}
       {/* <AlertExample/> */}
       {/* <GET_API/> */}
-      <POST_API />
+      {/* <POST_API /> */}
+      <PUT_API />
     </View>
   )
 }
