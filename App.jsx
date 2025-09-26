@@ -23,6 +23,7 @@ import AlertExample from './src/components/AlertExample.jsx'
 import GET_API from './src/components/GET_API.jsx'
 import POST_API from './src/components/POST_API.jsx'
 import PUT_API from './src/components/PUT_API.jsx'
+import PATCH_API from './src/components/PATCH_API.jsx'
 
 const App = () => {
   return (
@@ -50,7 +51,8 @@ const App = () => {
       {/* <AlertExample/> */}
       {/* <GET_API/> */}
       {/* <POST_API /> */}
-      <PUT_API />
+      {/* <PUT_API /> */}
+      <PATCH_API />
     </View>
   )
 }
