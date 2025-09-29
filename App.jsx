@@ -27,6 +27,7 @@ import PATCH_API from './src/components/PATCH_API.jsx'
 import DELETE_API from './src/components/DELETE_API.jsx'
 import GET_API_LIST from './src/components/GET_API_LIST.jsx'
 import PlatformExample from './src/components/PlatformExample.jsx'
+import Search from './src/components/Search.jsx'
 
 const App = () => {
   return (
@@ -58,7 +59,8 @@ const App = () => {
       {/* <PATCH_API /> */}
       {/* <DELETE_API /> */}
       {/* <GET_API_LIST /> */}
-      <PlatformExample/>
+      {/* <PlatformExample/> */}
+      <Search />
     </View>
   )
 }
