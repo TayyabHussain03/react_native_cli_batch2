@@ -76,19 +76,82 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/react-navigation/Home';
 import About from './src/react-navigation/About';
 import Login from './src/react-navigation/Login';
+import MyHeader from './src/react-navigation/MyHeader';
+import Example from './src/react-navigation/Example'
 
 const Stack = createNativeStackNavigator();
+
+// const HeaderLeft = () => <Button title='Left' color='lightblue' onPress={hello} />
+// const HeaderRight = () => <Button title='Right' color='lightgreen' onPress={hello} />
+
+// const hello = () => {
+//   Alert.alert("Hello", "Hello User")
+// }
+
+const MyExample = () => <Example />
+
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false // ✅ This hides the default header bar on all screens
+          headerStyle: {
+            backgroundColor: '#1e272e', // Dark elegant header
+            elevation: 4,               // Android shadow
+            shadowColor: '#000',        // iOS shadow
+            shadowOpacity: 0.2,
+            shadowOffset: { width: 0, height: 2 },
+            shadowRadius: 6
+          },
+          headerTitleStyle: {
+            fontSize: 22,
+            fontWeight: 'bold',
+            color: '#00cec9',
+            letterSpacing: 1
+          },
+          headerTintColor: '#ffffff', // Back button & icon color
+          contentStyle: {
+            backgroundColor: '#f5f6fa', // Light clean background
+            paddingHorizontal: 16,
+            paddingVertical: 10
+          }
         }}
+
       >
         {/* ✅ Registering screens in the stack */}
-        <Stack.Screen name="Login" component={Login}/>
+        // ❌ Cons: JSX-based headerTitle renders slower than plain string title
+        // ❌ Not ideal for static screens — adds unnecessary component lifecycle
+        // ❌ Harder to maintain if reused across many screens without abstraction
+        {/* <Stack.Screen name="Header" component={MyHeader}
+          options={
+            {
+              title: "",
+              headerTitle: () => <Button title='Left' color='lightblue' />,
+              headerRight: () => <Button title='Right' color='lightgreen' />
+            }
+          } /> */}
+
+        {/* // ✅ Better Approach
+        <Stack.Screen name="Header" component={MyHeader}
+          options={
+            {
+              title: "",
+              headerTitle: HeaderLeft,
+              headerRight: HeaderRight
+            }
+          } /> */}
+
+          // ✅ UserDefined
+        <Stack.Screen name="Header" component={MyHeader}
+          options={
+            {
+              title: "",
+              headerTitle: MyExample,
+            }
+          } />
+
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="About" component={About} />
 
