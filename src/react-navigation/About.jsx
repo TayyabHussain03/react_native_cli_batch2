@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-const About = ({ route }) => {
+const About = ({ route, navigation }) => {
     const { username } = route.params; // ✅ Receiving username from Login screen
+    const handleGoBack = () => {
+        navigation.goBack(); // ✅ This takes user back to the previous screen (Login or Home)
+    };
+
 
     return (
         <View style={styles.container}>
@@ -18,6 +22,12 @@ const About = ({ route }) => {
             </Text>
 
             <Text style={styles.footer}>Made with ❤️ by {username}</Text>
+
+            <TouchableOpacity style={styles.button} onPress={handleGoBack} activeOpacity={0.7}>
+                <Text style={styles.buttonText}>⬅ Go Back</Text>
+            </TouchableOpacity>
+
+
         </View>
     );
 };
@@ -58,5 +68,18 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#00a8ff',
         fontStyle: 'italic'
+    },
+    button: {
+        backgroundColor: '#e84118',
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 10,
+        elevation: 3
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold'
     }
+
 });
