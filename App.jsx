@@ -75,6 +75,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // ✅ Importing screens
 import Home from './src/react-navigation/Home';
 import About from './src/react-navigation/About';
+import Login from './src/react-navigation/Login';
 
 const Stack = createNativeStackNavigator();
 
@@ -87,6 +88,7 @@ const App = () => {
         }}
       >
         {/* ✅ Registering screens in the stack */}
+        <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="About" component={About} />
 

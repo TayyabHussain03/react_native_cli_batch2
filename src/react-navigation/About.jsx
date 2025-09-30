@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-const About = () => {
+const About = ({ route }) => {
+    const { username } = route.params; // ✅ Receiving username from Login screen
+
     return (
         <View style={styles.container}>
             <Text style={styles.heading}>About This App</Text>
@@ -15,7 +17,7 @@ const About = () => {
                 This React Native app is built to demonstrate navigation, API integration, and beautiful UI components. It’s fast, scalable, and designed for modern mobile experiences.
             </Text>
 
-            <Text style={styles.footer}>Made with ❤️ by Tayyab</Text>
+            <Text style={styles.footer}>Made with ❤️ by {username}</Text>
         </View>
     );
 };
