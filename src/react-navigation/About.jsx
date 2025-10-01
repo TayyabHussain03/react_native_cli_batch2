@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import "react-native-gesture-handler"
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 
 const About = ({ route, navigation }) => {
     const { username } = route.params; // ✅ Receiving username from Login screen
@@ -25,6 +26,10 @@ const About = ({ route, navigation }) => {
 
             <TouchableOpacity style={styles.button} onPress={handleGoBack} activeOpacity={0.7}>
                 <Text style={styles.buttonText}>⬅ Go Back</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.button} onPress={() => navigation.openDrawer()}>
+                <Text style={styles.buttonText}>Open Drawer</Text>
             </TouchableOpacity>
 
 

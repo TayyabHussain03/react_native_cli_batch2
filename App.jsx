@@ -68,103 +68,253 @@
 // export default App
 
 
+// import React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// // ✅ Importing screens
+// import Home from './src/react-navigation/Home';
+// import About from './src/react-navigation/About';
+// import Login from './src/react-navigation/Login';
+// import MyHeader from './src/react-navigation/MyHeader';
+// import Example from './src/react-navigation/Example'
+
+// const Stack = createNativeStackNavigator();
+
+// // const HeaderLeft = () => <Button title='Left' color='lightblue' onPress={hello} />
+// // const HeaderRight = () => <Button title='Right' color='lightgreen' onPress={hello} />
+
+// // const hello = () => {
+// //   Alert.alert("Hello", "Hello User")
+// // }
+
+// const MyExample = () => <Example />
+
+
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator
+//         screenOptions={{
+//           headerStyle: {
+//             backgroundColor: '#1e272e', // Dark elegant header
+//             elevation: 4,               // Android shadow
+//             shadowColor: '#000',        // iOS shadow
+//             shadowOpacity: 0.2,
+//             shadowOffset: { width: 0, height: 2 },
+//             shadowRadius: 6
+//           },
+//           headerTitleStyle: {
+//             fontSize: 22,
+//             fontWeight: 'bold',
+//             color: '#00cec9',
+//             letterSpacing: 1
+//           },
+//           headerTintColor: '#ffffff', // Back button & icon color
+//           contentStyle: {
+//             backgroundColor: '#f5f6fa', // Light clean background
+//             paddingHorizontal: 16,
+//             paddingVertical: 10
+//           }
+//         }}
+
+//       >
+//         {/* ✅ Registering screens in the stack */}
+//         // ❌ Cons: JSX-based headerTitle renders slower than plain string title
+//         // ❌ Not ideal for static screens — adds unnecessary component lifecycle
+//         // ❌ Harder to maintain if reused across many screens without abstraction
+//         {/* <Stack.Screen name="Header" component={MyHeader}
+//           options={
+//             {
+//               title: "",
+//               headerTitle: () => <Button title='Left' color='lightblue' />,
+//               headerRight: () => <Button title='Right' color='lightgreen' />
+//             }
+//           } /> */}
+
+//         {/* // ✅ Better Approach
+//         <Stack.Screen name="Header" component={MyHeader}
+//           options={
+//             {
+//               title: "",
+//               headerTitle: HeaderLeft,
+//               headerRight: HeaderRight
+//             }
+//           } /> */}
+
+//           // ✅ UserDefined
+//         <Stack.Screen name="Header" component={MyHeader}
+//           options={
+//             {
+//               title: "",
+//               headerTitle: MyExample,
+//             }
+//           } />
+
+//         <Stack.Screen name="Login" component={Login} />
+//         <Stack.Screen name="Home" component={Home} />
+//         <Stack.Screen name="About" component={About} />
+
+//         {/* - Tum per-screen bhi headerShown set kar sakte ho:
+//         <Stack.Screen
+//           name="Home"
+//           component={Home}
+//           options={{ headerShown: false }}
+//         /> */}
+
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
+
+// ***********************Drawer Navigation******************
+
 import React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import "react-native-gesture-handler"
 
 // ✅ Importing screens
-import Home from './src/react-navigation/Home';
-import About from './src/react-navigation/About';
-import Login from './src/react-navigation/Login';
-import MyHeader from './src/react-navigation/MyHeader';
-import Example from './src/react-navigation/Example'
+const Home = ({ navigation }) => (
+  <View
+    style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#f5f6fa'
+    }}
+  >
+    <Text
+      style={{
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#2f3640',
+        marginBottom: 20
+      }}
+    >
+      Home
+    </Text>
 
-const Stack = createNativeStackNavigator();
+    <TouchableOpacity
+      onPress={() => navigation.openDrawer()}
+      style={{
+        backgroundColor: '#00a8ff',
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 10,
+        elevation: 3
+      }}
+      activeOpacity={0.7}
+    >
+      <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
+        Open Drawer
+      </Text>
+    </TouchableOpacity>
+  </View>
+);
 
-// const HeaderLeft = () => <Button title='Left' color='lightblue' onPress={hello} />
-// const HeaderRight = () => <Button title='Right' color='lightgreen' onPress={hello} />
+const About = ({ navigation }) => (
+  <View
+    style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#f5f6fa'
+    }}
+  >
+    <Text
+      style={{
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#2f3640',
+        marginBottom: 20
+      }}
+    >
+      About
+    </Text>
 
-// const hello = () => {
-//   Alert.alert("Hello", "Hello User")
-// }
+    <TouchableOpacity
+      onPress={() => navigation.openDrawer()}
+      style={{
+        backgroundColor: '#00a8ff',
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 10,
+        elevation: 3
+      }}
+      activeOpacity={0.7}
+    >
+      <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
+        Open Drawer
+      </Text>
+    </TouchableOpacity>
+  </View>
+);
 
-const MyExample = () => <Example />
 
 
-const App = () => {
+
+const Drawer = createDrawerNavigator();
+
+function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <Drawer.Navigator
         screenOptions={{
+          // ✅ drawerStyle: Drawer ka background aur width set karta hai
+          drawerStyle: {
+            backgroundColor: '#f1f2f6', // Light elegant background
+            width: 240 // Drawer ki width in pixels
+          },
+
+          // ✅ drawerLabelStyle: Drawer ke labels ka font aur color define karta hai
+          drawerLabelStyle: {
+            fontSize: 16,
+            fontWeight: '600',
+            color: '#2f3640',
+            marginLeft: -10 // Thoda left shift for cleaner alignment
+          },
+
+          // ✅ headerStyle: Top header bar ka background aur shadow
           headerStyle: {
-            backgroundColor: '#1e272e', // Dark elegant header
-            elevation: 4,               // Android shadow
-            shadowColor: '#000',        // iOS shadow
+            backgroundColor: '#00a8ff', // Vibrant blue header
+            elevation: 4,
+            shadowColor: '#000',
             shadowOpacity: 0.2,
             shadowOffset: { width: 0, height: 2 },
             shadowRadius: 6
           },
+
+          // ✅ headerTintColor: Back button aur icons ka color
+          headerTintColor: '#fff',
+
+          // ✅ headerTitleAlign: Title ko center ya left align karta hai
+          headerTitleAlign: 'center',
+
+          // ✅ headerTitleStyle: Title text ka font aur spacing
           headerTitleStyle: {
-            fontSize: 22,
+            fontSize: 20,
             fontWeight: 'bold',
-            color: '#00cec9',
             letterSpacing: 1
           },
-          headerTintColor: '#ffffff', // Back button & icon color
+
+          // ✅ contentStyle: Screen background aur padding
           contentStyle: {
-            backgroundColor: '#f5f6fa', // Light clean background
+            backgroundColor: '#ffffff',
             paddingHorizontal: 16,
             paddingVertical: 10
           }
         }}
-
       >
-        {/* ✅ Registering screens in the stack */}
-        // ❌ Cons: JSX-based headerTitle renders slower than plain string title
-        // ❌ Not ideal for static screens — adds unnecessary component lifecycle
-        // ❌ Harder to maintain if reused across many screens without abstraction
-        {/* <Stack.Screen name="Header" component={MyHeader}
-          options={
-            {
-              title: "",
-              headerTitle: () => <Button title='Left' color='lightblue' />,
-              headerRight: () => <Button title='Right' color='lightgreen' />
-            }
-          } /> */}
-
-        {/* // ✅ Better Approach
-        <Stack.Screen name="Header" component={MyHeader}
-          options={
-            {
-              title: "",
-              headerTitle: HeaderLeft,
-              headerRight: HeaderRight
-            }
-          } /> */}
-
-          // ✅ UserDefined
-        <Stack.Screen name="Header" component={MyHeader}
-          options={
-            {
-              title: "",
-              headerTitle: MyExample,
-            }
-          } />
-
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="About" component={About} />
-
-        {/* - Tum per-screen bhi headerShown set kar sakte ho:
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }}
-        /> */}
-
-      </Stack.Navigator>
+        {/* ✅ Drawer.Screen: Har screen ko drawer mein register karta hai */}
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="About" component={About} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default App;

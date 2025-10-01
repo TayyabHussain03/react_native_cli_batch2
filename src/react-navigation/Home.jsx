@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import "react-native-gesture-handler"
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 
 const Home = ({ navigation }) => {
     return (
@@ -13,6 +14,10 @@ const Home = ({ navigation }) => {
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About')}>
                 <Text style={styles.buttonText}>Go to About Screen</Text>
             </TouchableOpacity>
+
+            <Button color="black" backgroundColor="lightgreen" fontSize="18" title="Open Drawer" onPress={() => {
+                navigation.openDrawer()
+            }} />
         </View>
     );
 };
