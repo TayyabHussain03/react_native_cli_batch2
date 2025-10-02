@@ -171,150 +171,312 @@
 
 // ***********************Drawer Navigation******************
 
+// import React from 'react';
+// import { View, Text, TouchableOpacity } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+// import "react-native-gesture-handler"
+
+// // ✅ Importing screens
+// const Home = ({ navigation }) => (
+//   <View
+//     style={{
+//       flex: 1,
+//       justifyContent: 'center',
+//       alignItems: 'center',
+//       backgroundColor: '#f5f6fa'
+//     }}
+//   >
+//     <Text
+//       style={{
+//         fontSize: 28,
+//         fontWeight: 'bold',
+//         color: '#2f3640',
+//         marginBottom: 20
+//       }}
+//     >
+//       Home
+//     </Text>
+
+//     <TouchableOpacity
+//       onPress={() => navigation.openDrawer()}
+//       style={{
+//         backgroundColor: '#00a8ff',
+//         paddingVertical: 12,
+//         paddingHorizontal: 24,
+//         borderRadius: 10,
+//         elevation: 3
+//       }}
+//       activeOpacity={0.7}
+//     >
+//       <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
+//         Open Drawer
+//       </Text>
+//     </TouchableOpacity>
+//   </View>
+// );
+
+// const About = ({ navigation }) => (
+//   <View
+//     style={{
+//       flex: 1,
+//       justifyContent: 'center',
+//       alignItems: 'center',
+//       backgroundColor: '#f5f6fa'
+//     }}
+//   >
+//     <Text
+//       style={{
+//         fontSize: 28,
+//         fontWeight: 'bold',
+//         color: '#2f3640',
+//         marginBottom: 20
+//       }}
+//     >
+//       About
+//     </Text>
+
+//     <TouchableOpacity
+//       onPress={() => navigation.openDrawer()}
+//       style={{
+//         backgroundColor: '#00a8ff',
+//         paddingVertical: 12,
+//         paddingHorizontal: 24,
+//         borderRadius: 10,
+//         elevation: 3
+//       }}
+//       activeOpacity={0.7}
+//     >
+//       <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
+//         Open Drawer
+//       </Text>
+//     </TouchableOpacity>
+//   </View>
+// );
+
+
+
+
+// const Drawer = createDrawerNavigator();
+
+// function App() {
+//   return (
+//     <NavigationContainer>
+//       <Drawer.Navigator
+//         screenOptions={{
+//           // ✅ drawerStyle: Drawer ka background aur width set karta hai
+//           drawerStyle: {
+//             backgroundColor: '#f1f2f6', // Light elegant background
+//             width: 240 // Drawer ki width in pixels
+//           },
+
+//           // ✅ drawerLabelStyle: Drawer ke labels ka font aur color define karta hai
+//           drawerLabelStyle: {
+//             fontSize: 16,
+//             fontWeight: '600',
+//             color: '#2f3640',
+//             marginLeft: -10 // Thoda left shift for cleaner alignment
+//           },
+
+//           // ✅ headerStyle: Top header bar ka background aur shadow
+//           headerStyle: {
+//             backgroundColor: '#00a8ff', // Vibrant blue header
+//             elevation: 4,
+//             shadowColor: '#000',
+//             shadowOpacity: 0.2,
+//             shadowOffset: { width: 0, height: 2 },
+//             shadowRadius: 6
+//           },
+
+//           // ✅ headerTintColor: Back button aur icons ka color
+//           headerTintColor: '#fff',
+
+//           // ✅ headerTitleAlign: Title ko center ya left align karta hai
+//           headerTitleAlign: 'center',
+
+//           // ✅ headerTitleStyle: Title text ka font aur spacing
+//           headerTitleStyle: {
+//             fontSize: 20,
+//             fontWeight: 'bold',
+//             letterSpacing: 1
+//           },
+
+//           // ✅ contentStyle: Screen background aur padding
+//           contentStyle: {
+//             backgroundColor: '#ffffff',
+//             paddingHorizontal: 16,
+//             paddingVertical: 10
+//           }
+//         }}
+//       >
+//         {/* ✅ Drawer.Screen: Har screen ko drawer mein register karta hai */}
+//         <Drawer.Screen name="Home" component={Home} />
+//         <Drawer.Screen name="About" component={About} />
+//       </Drawer.Navigator>
+//     </NavigationContainer>
+//   );
+// }
+
+// export default App;
+
+
+// ***********************Bottom Tab Navigation******************
+
+// import React from 'react';
+// import { View, Text } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+
+// const Tab = createBottomTabNavigator();
+
+// // ✅ Home Screen Component
+// const HomeScreen = () => (
+//   <View style={{
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f6fa'
+//   }}>
+//     <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
+//       Home Screen
+//     </Text>
+//   </View>
+// );
+
+// // ✅ Profile Screen Component
+// const ProfileScreen = () => (
+//   <View style={{
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f6fa'
+//   }}>
+//     <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
+//       Profile Screen
+//     </Text>
+//   </View>
+// );
+
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Tab.Navigator
+//         screenOptions={({ route }) => ({
+//           // ✅ tabBarIcon: Icon show karta hai har tab ke liye
+//           tabBarIcon: ({ focused, color, size }) => {
+//             let iconName;
+
+//             if (route.name === 'Home') {
+//               iconName = focused ? 'home' : 'home-outline';
+//             } else if (route.name === 'Profile') {
+//               iconName = focused ? 'person' : 'person-outline';
+//             }
+
+//             return <Ionicons name={iconName} size={size} color={color} />;
+//           },
+
+//           // ✅ tabBarActiveTintColor: Active tab ka icon/text color
+//           tabBarActiveTintColor: '#00a8ff',
+
+//           // ✅ tabBarInactiveTintColor: Inactive tab ka icon/text color
+//           tabBarInactiveTintColor: '#636e72',
+
+//           // ✅ tabBarStyle: Tab bar ka background aur spacing
+//           tabBarStyle: {
+//             backgroundColor: '#dfe6e9',
+//             paddingBottom: 5,
+//             height: 60
+//           },
+
+//           // ✅ headerShown: Top header ko hide karta hai
+//           headerShown: false
+//         })}
+//       >
+//         {/* ✅ Tab Screens */}
+//         <Tab.Screen name="Home" component={HomeScreen} />
+//         <Tab.Screen name="Profile" component={ProfileScreen} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
+
+
+// **********************Top Tab*********************
+
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import "react-native-gesture-handler"
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-// ✅ Importing screens
-const Home = ({ navigation }) => (
-  <View
-    style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#f5f6fa'
-    }}
-  >
-    <Text
-      style={{
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#2f3640',
-        marginBottom: 20
-      }}
-    >
-      Home
+const Tab = createMaterialTopTabNavigator();
+
+// ✅ Home Screen Component
+const HomeScreen = () => (
+  <View style={{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f6fa'
+  }}>
+    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
+      Home Screen
     </Text>
-
-    <TouchableOpacity
-      onPress={() => navigation.openDrawer()}
-      style={{
-        backgroundColor: '#00a8ff',
-        paddingVertical: 12,
-        paddingHorizontal: 24,
-        borderRadius: 10,
-        elevation: 3
-      }}
-      activeOpacity={0.7}
-    >
-      <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
-        Open Drawer
-      </Text>
-    </TouchableOpacity>
   </View>
 );
 
-const About = ({ navigation }) => (
-  <View
-    style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#f5f6fa'
-    }}
-  >
-    <Text
-      style={{
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#2f3640',
-        marginBottom: 20
-      }}
-    >
-      About
+// ✅ Profile Screen Component
+const ProfileScreen = () => (
+  <View style={{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f6fa'
+  }}>
+    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
+      Profile Screen
     </Text>
-
-    <TouchableOpacity
-      onPress={() => navigation.openDrawer()}
-      style={{
-        backgroundColor: '#00a8ff',
-        paddingVertical: 12,
-        paddingHorizontal: 24,
-        borderRadius: 10,
-        elevation: 3
-      }}
-      activeOpacity={0.7}
-    >
-      <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
-        Open Drawer
-      </Text>
-    </TouchableOpacity>
   </View>
 );
 
-
-
-
-const Drawer = createDrawerNavigator();
-
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
+      <Tab.Navigator
         screenOptions={{
-          // ✅ drawerStyle: Drawer ka background aur width set karta hai
-          drawerStyle: {
-            backgroundColor: '#f1f2f6', // Light elegant background
-            width: 240 // Drawer ki width in pixels
+          // ✅ tabBarStyle: Top tab bar ka background aur height
+          tabBarStyle: {
+            backgroundColor: '#00a8ff',
+            height: 50
           },
 
-          // ✅ drawerLabelStyle: Drawer ke labels ka font aur color define karta hai
-          drawerLabelStyle: {
-            fontSize: 16,
+          // ✅ tabBarLabelStyle: Tab label ka font aur spacing
+          tabBarLabelStyle: {
+            fontSize: 14,
             fontWeight: '600',
-            color: '#2f3640',
-            marginLeft: -10 // Thoda left shift for cleaner alignment
+            color: '#fff',
+            textTransform: 'none' // ✅ Prevents uppercase labels
           },
 
-          // ✅ headerStyle: Top header bar ka background aur shadow
-          headerStyle: {
-            backgroundColor: '#00a8ff', // Vibrant blue header
-            elevation: 4,
-            shadowColor: '#000',
-            shadowOpacity: 0.2,
-            shadowOffset: { width: 0, height: 2 },
-            shadowRadius: 6
+          // ✅ tabBarIndicatorStyle: Active tab ke neeche line ka style
+          tabBarIndicatorStyle: {
+            backgroundColor: '#fff',
+            height: 3,
+            borderRadius: 2
           },
 
-          // ✅ headerTintColor: Back button aur icons ka color
-          headerTintColor: '#fff',
-
-          // ✅ headerTitleAlign: Title ko center ya left align karta hai
-          headerTitleAlign: 'center',
-
-          // ✅ headerTitleStyle: Title text ka font aur spacing
-          headerTitleStyle: {
-            fontSize: 20,
-            fontWeight: 'bold',
-            letterSpacing: 1
-          },
-
-          // ✅ contentStyle: Screen background aur padding
-          contentStyle: {
-            backgroundColor: '#ffffff',
-            paddingHorizontal: 16,
-            paddingVertical: 10
-          }
+          // ✅ tabBarPressColor: Ripple effect color on press
+          tabBarPressColor: '#74b9ff'
         }}
       >
-        {/* ✅ Drawer.Screen: Har screen ko drawer mein register karta hai */}
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="About" component={About} />
-      </Drawer.Navigator>
+        {/* ✅ Registering screens */}
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 export default App;
