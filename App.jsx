@@ -448,30 +448,34 @@ const App = () => {
         screenOptions={{
           // ✅ tabBarStyle: Top tab bar ka background aur height
           tabBarStyle: {
-            backgroundColor: '#00a8ff',
-            height: 50
+            backgroundColor: '#1e272e', // Dark techy background
+            height: 55
           },
 
           // ✅ tabBarLabelStyle: Tab label ka font aur spacing
           tabBarLabelStyle: {
-            fontSize: 14,
+            fontSize: 15,
             fontWeight: '600',
-            color: '#fff',
-            textTransform: 'none' // ✅ Prevents uppercase labels
+            textTransform: 'none' // Prevents auto-uppercase
           },
 
-          // ✅ tabBarIndicatorStyle: Active tab ke neeche line ka style
+          // ✅ tabBarActiveTintColor: Active tab text color
+          tabBarActiveTintColor: '#00cec9',
+
+          // ✅ tabBarInactiveTintColor: Inactive tab text color
+          tabBarInactiveTintColor: '#dcdde1',
+
+          // ✅ tabBarIndicatorStyle: Active tab ke neeche underline
           tabBarIndicatorStyle: {
-            backgroundColor: '#fff',
+            backgroundColor: '#00cec9',
             height: 3,
             borderRadius: 2
           },
 
-          // ✅ tabBarPressColor: Ripple effect color on press
+          // ✅ tabBarPressColor: Ripple effect on tab press
           tabBarPressColor: '#74b9ff'
         }}
       >
-        {/* ✅ Registering screens */}
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
