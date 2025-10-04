@@ -29,6 +29,7 @@ import GET_API_LIST from './src/components/GET_API_LIST.jsx'
 import PlatformExample from './src/components/PlatformExample.jsx'
 import Search from './src/components/Search.jsx'
 import UsernameStorage from './src/components/UsernameStorage.jsx'
+import ImageComponent from './src/components/ImageComponent.jsx'
 
 const App = () => {
   return (
@@ -62,7 +63,8 @@ const App = () => {
       {/* <GET_API_LIST /> */}
       {/* <PlatformExample/> */}
       {/* <Search /> */}
-      <UsernameStorage />
+      {/* <UsernameStorage /> */}
+      <ImageComponent />
     </View>
   )
 }
