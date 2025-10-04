@@ -1,71 +1,73 @@
-// import React, { Component } from 'react'
-// import { Text, View } from 'react-native'
-// import MyButton from './src/components/MyButton'
-// import JSX from './src/components/JSX'
-// import UseStateHook from './src/components/UseStateHook'
-// import PropTest from './src/components/PropTest'
-// import InputText from './src/components/InputText.jsx'
-// import Styling from './src/components/Styling.jsx'
-// import FlatListScreen from './src/components/FlatListScreen.jsx'
-// import SectionListScreen from './src/components/SectionListScreen.jsx'
-// import Login from './src/components/Login.jsx'
-// import UserContact from './src/screens/ContactList/UserContact.jsx'
-// import Grid from './src/components/Grid.jsx'
-// import UseEffectHook from './src/components/UseEffectHook.jsx'
-// import UseEffectUnmounting from './src/components/UseEffectUnmounting.jsx'
-// import StylingButton from './src/components/StylingButton.jsx'
-// import LoaderToggle from './src/components/LoaderToggle.jsx'
-// import Presable from './src/components/Presable.jsx'
-// import StatusBarComponent from './src/components/StatusBarComponent.jsx'
-// import UseRefExample from './src/components/UseRefExample.jsx'
-// import ModalDialogBox from './src/components/ModalDialogBox.jsx'
-// import AlertExample from './src/components/AlertExample.jsx'
-// import GET_API from './src/components/GET_API.jsx'
-// import POST_API from './src/components/POST_API.jsx'
-// import PUT_API from './src/components/PUT_API.jsx'
-// import PATCH_API from './src/components/PATCH_API.jsx'
-// import DELETE_API from './src/components/DELETE_API.jsx'
-// import GET_API_LIST from './src/components/GET_API_LIST.jsx'
-// import PlatformExample from './src/components/PlatformExample.jsx'
-// import Search from './src/components/Search.jsx'
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
+import MyButton from './src/components/MyButton'
+import JSX from './src/components/JSX'
+import UseStateHook from './src/components/UseStateHook'
+import PropTest from './src/components/PropTest'
+import InputText from './src/components/InputText.jsx'
+import Styling from './src/components/Styling.jsx'
+import FlatListScreen from './src/components/FlatListScreen.jsx'
+import SectionListScreen from './src/components/SectionListScreen.jsx'
+import Login from './src/components/Login.jsx'
+import UserContact from './src/screens/ContactList/UserContact.jsx'
+import Grid from './src/components/Grid.jsx'
+import UseEffectHook from './src/components/UseEffectHook.jsx'
+import UseEffectUnmounting from './src/components/UseEffectUnmounting.jsx'
+import StylingButton from './src/components/StylingButton.jsx'
+import LoaderToggle from './src/components/LoaderToggle.jsx'
+import Presable from './src/components/Presable.jsx'
+import StatusBarComponent from './src/components/StatusBarComponent.jsx'
+import UseRefExample from './src/components/UseRefExample.jsx'
+import ModalDialogBox from './src/components/ModalDialogBox.jsx'
+import AlertExample from './src/components/AlertExample.jsx'
+import GET_API from './src/components/GET_API.jsx'
+import POST_API from './src/components/POST_API.jsx'
+import PUT_API from './src/components/PUT_API.jsx'
+import PATCH_API from './src/components/PATCH_API.jsx'
+import DELETE_API from './src/components/DELETE_API.jsx'
+import GET_API_LIST from './src/components/GET_API_LIST.jsx'
+import PlatformExample from './src/components/PlatformExample.jsx'
+import Search from './src/components/Search.jsx'
+import UsernameStorage from './src/components/UsernameStorage.jsx'
 
-// const App = () => {
-//   return (
-//     <View style={{ flex: 1, backgroundColor: "white" }} >
-//       {/* <Text style={{ fontSize: 24, color: "red", textTransform: "uppercase" }} >tayyab hussain</Text> */}
-//       {/* <MyButton /> */}
-//       {/* <JSX /> */}
-//       {/* <UseStateHook /> */}
-//       {/* <PropTest/> */}
-//       {/* <InputText /> */}
-//       {/* <Styling/> */}
-//       {/* <FlatListScreen/> */}
-//       {/* <SectionListScreen/> */}
-//       {/* <Login /> */}
-//       {/* <UserContact /> */}
-//       {/* <Grid/> */}
-//       {/* <UseEffectHook/> */}
-//       {/* <UseEffectUnmounting/> */}
-//       {/* <StylingButton/> */}
-//       {/* <LoaderToggle/> */}
-//       {/* <Presable/> */}
-//       {/* <StatusBarComponent/> */}
-//       {/* <UseRefExample/> */}
-//       {/* <ModalDialogBox/> */}
-//       {/* <AlertExample/> */}
-//       {/* <GET_API/> */}
-//       {/* <POST_API /> */}
-//       {/* <PUT_API /> */}
-//       {/* <PATCH_API /> */}
-//       {/* <DELETE_API /> */}
-//       {/* <GET_API_LIST /> */}
-//       {/* <PlatformExample/> */}
-//       <Search />
-//     </View>
-//   )
-// }
+const App = () => {
+  return (
+    <View style={{ flex: 1, backgroundColor: "white" }} >
+      {/* <Text style={{ fontSize: 24, color: "red", textTransform: "uppercase" }} >tayyab hussain</Text> */}
+      {/* <MyButton /> */}
+      {/* <JSX /> */}
+      {/* <UseStateHook /> */}
+      {/* <PropTest/> */}
+      {/* <InputText /> */}
+      {/* <Styling/> */}
+      {/* <FlatListScreen/> */}
+      {/* <SectionListScreen/> */}
+      {/* <Login /> */}
+      {/* <UserContact /> */}
+      {/* <Grid/> */}
+      {/* <UseEffectHook/> */}
+      {/* <UseEffectUnmounting/> */}
+      {/* <StylingButton/> */}
+      {/* <LoaderToggle/> */}
+      {/* <Presable/> */}
+      {/* <StatusBarComponent/> */}
+      {/* <UseRefExample/> */}
+      {/* <ModalDialogBox/> */}
+      {/* <AlertExample/> */}
+      {/* <GET_API/> */}
+      {/* <POST_API /> */}
+      {/* <PUT_API /> */}
+      {/* <PATCH_API /> */}
+      {/* <DELETE_API /> */}
+      {/* <GET_API_LIST /> */}
+      {/* <PlatformExample/> */}
+      {/* <Search /> */}
+      <UsernameStorage />
+    </View>
+  )
+}
 
-// export default App
+export default App
 
 
 // import React from 'react';
@@ -406,81 +408,81 @@
 
 // **********************Top Tab*********************
 
-import React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+// import React from 'react';
+// import { View, Text } from 'react-native';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-const Tab = createMaterialTopTabNavigator();
+// const Tab = createMaterialTopTabNavigator();
 
-// ✅ Home Screen Component
-const HomeScreen = () => (
-  <View style={{
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f6fa'
-  }}>
-    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
-      Home Screen
-    </Text>
-  </View>
-);
+// // ✅ Home Screen Component
+// const HomeScreen = () => (
+//   <View style={{
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f6fa'
+//   }}>
+//     <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
+//       Home Screen
+//     </Text>
+//   </View>
+// );
 
-// ✅ Profile Screen Component
-const ProfileScreen = () => (
-  <View style={{
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f6fa'
-  }}>
-    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
-      Profile Screen
-    </Text>
-  </View>
-);
+// // ✅ Profile Screen Component
+// const ProfileScreen = () => (
+//   <View style={{
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#f5f6fa'
+//   }}>
+//     <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#2f3640' }}>
+//       Profile Screen
+//     </Text>
+//   </View>
+// );
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          // ✅ tabBarStyle: Top tab bar ka background aur height
-          tabBarStyle: {
-            backgroundColor: '#1e272e', // Dark techy background
-            height: 55
-          },
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <Tab.Navigator
+//         screenOptions={{
+//           // ✅ tabBarStyle: Top tab bar ka background aur height
+//           tabBarStyle: {
+//             backgroundColor: '#1e272e', // Dark techy background
+//             height: 50
+//           },
 
-          // ✅ tabBarLabelStyle: Tab label ka font aur spacing
-          tabBarLabelStyle: {
-            fontSize: 15,
-            fontWeight: '600',
-            textTransform: 'none' // Prevents auto-uppercase
-          },
+//           // ✅ tabBarLabelStyle: Tab label ka font aur spacing
+//           tabBarLabelStyle: {
+//             fontSize: 16,
+//             fontWeight: '600',
+//             textTransform: 'none' // Prevents auto-uppercase
+//           },
 
-          // ✅ tabBarActiveTintColor: Active tab text color
-          tabBarActiveTintColor: '#00cec9',
+//           // ✅ tabBarActiveTintColor: Active tab text color
+//           tabBarActiveTintColor: '#00ce82',
 
-          // ✅ tabBarInactiveTintColor: Inactive tab text color
-          tabBarInactiveTintColor: '#dcdde1',
+//           // ✅ tabBarInactiveTintColor: Inactive tab text color
+//           tabBarInactiveTintColor: '#dcdde1',
 
-          // ✅ tabBarIndicatorStyle: Active tab ke neeche underline
-          tabBarIndicatorStyle: {
-            backgroundColor: '#00cec9',
-            height: 3,
-            borderRadius: 2
-          },
+//           // ✅ tabBarIndicatorStyle: Active tab ke neeche underline
+//           tabBarIndicatorStyle: {
+//             backgroundColor: '#00ce82',
+//             height: 3,
+//             borderRadius: 2
+//           },
 
-          // ✅ tabBarPressColor: Ripple effect on tab press
-          tabBarPressColor: '#74b9ff'
-        }}
-      >
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
-};
+//           // ✅ tabBarPressColor: Ripple effect on tab press
+//           tabBarPressColor: '#74b9ff'
+//         }}
+//       >
+//         <Tab.Screen name="Home" component={HomeScreen} />
+//         <Tab.Screen name="Profile" component={ProfileScreen} />
+//       </Tab.Navigator>
+//     </NavigationContainer>
+//   );
+// };
 
-export default App;
+// export default App;
