@@ -30,6 +30,7 @@ import PlatformExample from './src/components/PlatformExample.jsx'
 import Search from './src/components/Search.jsx'
 import UsernameStorage from './src/components/UsernameStorage.jsx'
 import ImageComponent from './src/components/ImageComponent.jsx'
+import Parent from './src/components/Parent.jsx'
 
 const App = () => {
   return (
@@ -64,7 +65,8 @@ const App = () => {
       {/* <PlatformExample/> */}
       {/* <Search /> */}
       {/* <UsernameStorage /> */}
-      <ImageComponent />
+      {/* <ImageComponent /> */}
+      <Parent />
     </View>
   )
 }
