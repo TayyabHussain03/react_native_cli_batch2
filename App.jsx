@@ -496,6 +496,8 @@
 
 // ✅ Importing React
 import React from 'react';
+import "./global.css"
+import NativewindLogin from './src/components/NativewindLogin'
 
 // ✅ Importing Provider from react-redux
 // Provider is a higher-order component that makes the Redux store available to all components
@@ -505,10 +507,12 @@ import Counter from './src/components/Counter';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      {/* ✅ Counter component will now have access to Redux state */}
-      <Counter />
-    </Provider>
+    // <Provider store={store}>
+    //   {/* ✅ Counter component will now have access to Redux state */}
+    //   <Counter />
+    // </Provider>
+
+    <NativewindLogin/>
   );
 };
 
