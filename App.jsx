@@ -504,6 +504,7 @@ import { store } from './src/redux/store/store';
 import Counter from './src/components/Counter';
 import ZustandCounter from './src/components/ZustandCounter'
 import NativewindLogin from './src/components/NativewindLogin'
+import FlipNatureCard from './src/components/FlipNatureCard'
 
 const App = () => {
   return (
@@ -513,7 +514,8 @@ const App = () => {
     //   <ZustandCounter/>
     // </Provider>
 
-    <NativewindLogin/>
+    // <NativewindLogin/>
+    <FlipNatureCard />
   );
 };
 
