@@ -496,6 +496,7 @@
 
 // ✅ Importing React
 import React from 'react';
+import { Text } from 'react-native'
 
 // ✅ Importing Provider from react-redux
 // Provider is a higher-order component that makes the Redux store available to all components
@@ -505,6 +506,7 @@ import Counter from './src/components/Counter';
 import ZustandCounter from './src/components/ZustandCounter'
 import NativewindLogin from './src/components/NativewindLogin'
 import FlipNatureCard from './src/components/FlipNatureCard'
+import SwitchUI from './src/components/SwitchUi'
 
 const App = () => {
   return (
@@ -515,7 +517,9 @@ const App = () => {
     // </Provider>
 
     // <NativewindLogin/>
-    <FlipNatureCard />
+    // <FlipNatureCard />
+    <SwitchUI />
+    // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
   );
 };
 
