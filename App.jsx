@@ -507,6 +507,7 @@ import ZustandCounter from './src/components/ZustandCounter'
 import NativewindLogin from './src/components/NativewindLogin'
 import FlipNatureCard from './src/components/FlipNatureCard'
 import SwitchUI from './src/components/SwitchUi'
+import FirebaseRegister from './src/components/FirebaseRegister'
 
 const App = () => {
   return (
@@ -518,7 +519,8 @@ const App = () => {
 
     // <NativewindLogin/>
     // <FlipNatureCard />
-    <SwitchUI />
+    // <SwitchUI />
+    <FirebaseRegister />
     // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
   );
 };
