@@ -497,6 +497,9 @@
 // ✅ Importing React
 import React from 'react';
 import { Text } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 // ✅ Importing Provider from react-redux
 // Provider is a higher-order component that makes the Redux store available to all components
@@ -508,6 +511,11 @@ import NativewindLogin from './src/components/NativewindLogin'
 import FlipNatureCard from './src/components/FlipNatureCard'
 import SwitchUI from './src/components/SwitchUi'
 import FirebaseRegister from './src/components/FirebaseRegister'
+import FirebaseLogin from './src/components/FirebaseLogin'
+
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
@@ -520,7 +528,13 @@ const App = () => {
     // <NativewindLogin/>
     // <FlipNatureCard />
     // <SwitchUI />
-    <FirebaseRegister />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Register" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Register" component={FirebaseRegister} />
+        <Stack.Screen name="Login" component={FirebaseLogin} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
     // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
   );
 };

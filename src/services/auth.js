@@ -1,4 +1,6 @@
-import { getAuth, createUserWithEmailAndPassword } from '@react-native-firebase/auth';
+import {
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+} from '@react-native-firebase/auth';
 import { getApp } from '@react-native-firebase/app';
 
 export const registerUser = async (email, password) => {
@@ -30,6 +32,34 @@ export const registerUser = async (email, password) => {
                 break;
         }
 
+        return { success: false, message };
+    }
+};
+
+export const loginUser = async (email, password) => {
+    try {
+        const auth = getAuth(getApp());
+        const { user } = await signInWithEmailAndPassword(auth, email, password);
+        return { success: true, user };
+    } catch (error) {
+        let message = '';
+        switch (error.code) {
+            case 'auth/user-not-found':
+                message = 'No account found with this email.';
+                break;
+            case 'auth/wrong-password':
+                message = 'Incorrect password.';
+                break;
+            case 'auth/invalid-email':
+                message = 'Invalid email format.';
+                break;
+            case 'auth/network-request-failed':
+                message = 'Network error. Please check your connection.';
+                break;
+            default:
+                message = error.message;
+                break;
+        }
         return { success: false, message };
     }
 };

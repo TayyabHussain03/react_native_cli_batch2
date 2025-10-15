@@ -2,33 +2,24 @@ import React, { useState } from 'react';
 import {
     View, Text, TextInput, Pressable, Alert, StyleSheet,
 } from 'react-native';
-import { registerUser } from '../services/auth'
+import { loginUser } from '../services/auth';
 
-const FirebaseRegister = ({ navigation }) => {
+const FirebaseLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleRegister = async () => {
-        if (!email || !password || !confirmPassword) {
+    const handleLogin = async () => {
+        if (!email || !password) {
             Alert.alert('Error', 'Please fill all fields.');
             return;
         }
 
-        if (password !== confirmPassword) {
-            Alert.alert('Error', 'Passwords do not match.');
-            return;
-        }
-
         try {
-            const result = await registerUser(email, password);
-
+            const result = await loginUser(email, password);
             if (result.success) {
-                Alert.alert('Success', `Registered as ${result.user.email}`);
+                Alert.alert('Success', `Logged in as ${result.user.email}`);
                 setEmail('');
                 setPassword('');
-                setConfirmPassword('');
-                navigation.navigate('Login')
             } else {
                 Alert.alert('Error', result.message);
             }
@@ -37,15 +28,14 @@ const FirebaseRegister = ({ navigation }) => {
         }
     };
 
-
     return (
         <View style={styles.container}>
             <View style={styles.card}>
-                <Text style={styles.title}>Create Account</Text>
+                <Text style={styles.title}>Login</Text>
 
                 <TextInput
                     placeholder="Email"
-                    placeholderTextColor="#7c3aed" // ✅ Purple placeholder
+                    placeholderTextColor="#7c3aed"
                     value={email}
                     onChangeText={setEmail}
                     style={styles.input}
@@ -62,24 +52,15 @@ const FirebaseRegister = ({ navigation }) => {
                     secureTextEntry
                 />
 
-                <TextInput
-                    placeholder="Confirm Password"
-                    placeholderTextColor="#7c3aed"
-                    value={confirmPassword}
-                    onChangeText={setConfirmPassword}
-                    style={styles.input}
-                    secureTextEntry
-                />
-
-                <Pressable onPress={handleRegister} style={styles.button}>
-                    <Text style={styles.buttonText}>Register</Text>
+                <Pressable onPress={handleLogin} style={styles.button}>
+                    <Text style={styles.buttonText}>Login</Text>
                 </Pressable>
             </View>
         </View>
     );
 };
 
-export default FirebaseRegister;
+export default FirebaseLogin;
 
 const styles = StyleSheet.create({
     container: {
@@ -87,12 +68,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 16,
-        backgroundColor: '#e0e7ff', // ✅ Light bluish background
+        backgroundColor: '#e0e7ff',
     },
     card: {
         width: '100%',
         maxWidth: 400,
-        backgroundColor: 'rgba(255,255,255,0.85)', // ✅ Glass effect
+        backgroundColor: 'rgba(255,255,255,0.85)',
         borderRadius: 24,
         padding: 24,
         borderWidth: 1,
@@ -118,8 +99,7 @@ const styles = StyleSheet.create({
         borderColor: '#cbd5e1',
     },
     button: {
-        backgroundColor: 'linear-gradient(90deg, #7c3aed, #6366f1)', // ✅ Gradient fallback
-        backgroundColor: '#7c3aed', // ✅ Purple fallback
+        backgroundColor: '#7c3aed',
         paddingVertical: 14,
         borderRadius: 999,
         alignItems: 'center',
