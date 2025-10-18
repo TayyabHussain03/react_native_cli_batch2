@@ -74,6 +74,10 @@ const FirebaseRegister = ({ navigation }) => {
                 <Pressable onPress={handleRegister} style={styles.button}>
                     <Text style={styles.buttonText}>Register</Text>
                 </Pressable>
+
+                <Pressable onPress={() => navigation.navigate('Login')}>
+                    <Text style={styles.linkText}>Already a member? Sign in</Text>
+                </Pressable>
             </View>
         </View>
     );
@@ -131,4 +135,13 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
         textTransform: 'uppercase',
     },
+    linkText: {
+        marginTop: 16,
+        textAlign: 'center',
+        color: '#7c3aed',
+        fontSize: 14,
+        fontWeight: '500',
+        textDecorationLine: 'underline',
+    },
+
 });

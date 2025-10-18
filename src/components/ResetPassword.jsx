@@ -2,24 +2,23 @@ import React, { useState } from 'react';
 import {
     View, Text, TextInput, Pressable, Alert, StyleSheet,
 } from 'react-native';
-import { loginUser } from '../services/auth';
+import { resetPassword } from '../services/auth'; // ✅ Function from auth.js
 
-const FirebaseLogin = ({ navigation }) => {
+const ResetPassword = () => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleLogin = async () => {
-        if (!email || !password) {
-            Alert.alert('Error', 'Please fill all fields.');
+    const handleReset = async () => {
+        if (!email) {
+            Alert.alert('Error', 'Please enter your email.');
             return;
         }
 
         try {
-            const result = await loginUser(email, password);
+            const result = await resetPassword(email);
+
             if (result.success) {
-                Alert.alert('Success', `Logged in as ${result.user.email}`);
+                Alert.alert('Success', result.message);
                 setEmail('');
-                setPassword('');
             } else {
                 Alert.alert('Error', result.message);
             }
@@ -31,10 +30,10 @@ const FirebaseLogin = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.card}>
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Reset Password</Text>
 
                 <TextInput
-                    placeholder="Email"
+                    placeholder="Enter your email"
                     placeholderTextColor="#7c3aed"
                     value={email}
                     onChangeText={setEmail}
@@ -43,29 +42,15 @@ const FirebaseLogin = ({ navigation }) => {
                     autoCapitalize="none"
                 />
 
-                <TextInput
-                    placeholder="Password"
-                    placeholderTextColor="#7c3aed"
-                    value={password}
-                    onChangeText={setPassword}
-                    style={styles.input}
-                    secureTextEntry
-                />
-
-                <Pressable onPress={handleLogin} style={styles.button}>
-                    <Text style={styles.buttonText}>Login</Text>
+                <Pressable onPress={handleReset} style={styles.button}>
+                    <Text style={styles.buttonText}>Send Reset Link</Text>
                 </Pressable>
-
-                <Pressable onPress={() => navigation.navigate('ResetPassword')}>
-                    <Text style={styles.forgotText}>Forgot Password?</Text>
-                </Pressable>
-
             </View>
         </View>
     );
 };
 
-export default FirebaseLogin;
+export default ResetPassword;
 
 const styles = StyleSheet.create({
     container: {
@@ -116,13 +101,4 @@ const styles = StyleSheet.create({
         letterSpacing: 1,
         textTransform: 'uppercase',
     },
-    forgotText: {
-        marginTop: 16,
-        textAlign: 'center',
-        color: '#7c3aed',
-        fontSize: 14,
-        fontWeight: '500',
-        textDecorationLine: 'underline',
-    },
-
 });

@@ -1,5 +1,5 @@
 import {
-    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+    getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail
 } from '@react-native-firebase/auth';
 import { getApp } from '@react-native-firebase/app';
 
@@ -63,3 +63,35 @@ export const loginUser = async (email, password) => {
         return { success: false, message };
     }
 };
+
+export const resetPassword = async (email) => {
+    try {
+        const auth = getAuth(getApp());
+
+        await sendPasswordResetEmail(auth, email); // ✅ Firebase method to send reset link
+        return { success: true, message: 'Password reset link sent to your email.' };
+    } catch (error) {
+        let message = '';
+
+        switch (error.code) {
+            case 'auth/user-not-found':
+                message = 'No account found with this email.';
+                break;
+            case 'auth/invalid-email':
+                message = 'Invalid email format.';
+                break;
+            case 'auth/missing-email':
+                message = 'Please enter your email.';
+                break;
+            case 'auth/network-request-failed':
+                message = 'Network error. Please check your connection.';
+                break;
+            default:
+                message = error.message;
+                break;
+        }
+
+        return { success: false, message };
+    }
+};
+
