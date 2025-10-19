@@ -13,7 +13,7 @@ import {
     getUsers,
     updateUser,
     deleteUser,
-} from '../database/firestoreCRUD'
+} from '../database/firestoreCRUD';
 
 const UserCRUD = () => {
     const [name, setName] = useState('');
@@ -22,7 +22,6 @@ const UserCRUD = () => {
     const [users, setUsers] = useState([]);
     const [editId, setEditId] = useState(null);
 
-    // ✅ Fetch users on mount
     useEffect(() => {
         fetchUsers();
     }, []);
@@ -36,6 +35,13 @@ const UserCRUD = () => {
         }
     };
 
+    const resetForm = () => {
+        setName('');
+        setEmail('');
+        setPhone('');
+        setEditId(null);
+    };
+
     const handleSubmit = async () => {
         if (!name || !email || !phone) {
             Alert.alert('Error', 'Please fill all fields');
@@ -44,24 +50,16 @@ const UserCRUD = () => {
 
         const userData = { name, email, phone };
 
-        if (editId) {
-            const result = await updateUser(editId, userData);
-            if (result.success) {
-                Alert.alert('Success', result.message);
-                resetForm();
-                fetchUsers();
-            } else {
-                Alert.alert('Error', result.message);
-            }
+        const result = editId
+            ? await updateUser(editId, userData)
+            : await addUser(userData);
+
+        if (result.success) {
+            Alert.alert('Success', result.message);
+            resetForm();
+            fetchUsers();
         } else {
-            const result = await addUser(userData);
-            if (result.success) {
-                Alert.alert('Success', result.message);
-                resetForm();
-                fetchUsers();
-            } else {
-                Alert.alert('Error', result.message);
-            }
+            Alert.alert('Error', result.message);
         }
     };
 
@@ -80,13 +78,6 @@ const UserCRUD = () => {
         } else {
             Alert.alert('Error', result.message);
         }
-    };
-
-    const resetForm = () => {
-        setName('');
-        setEmail('');
-        setPhone('');
-        setEditId(null);
     };
 
     return (
@@ -131,9 +122,9 @@ const UserCRUD = () => {
                 contentContainerStyle={{ paddingBottom: 100 }}
                 renderItem={({ item }) => (
                     <View style={styles.userCard}>
-                        <Text style={styles.userText}>{item.name}</Text>
-                        <Text style={styles.userText}>{item.email}</Text>
-                        <Text style={styles.userText}>{item.phone}</Text>
+                        <Text style={styles.userText}>👤 {item.name}</Text>
+                        <Text style={styles.userText}>📧 {item.email}</Text>
+                        <Text style={styles.userText}>📱 {item.phone}</Text>
 
                         <View style={styles.actions}>
                             <Pressable onPress={() => handleEdit(item)} style={styles.editBtn}>
@@ -221,12 +212,14 @@ const styles = StyleSheet.create({
     },
     editBtn: {
         backgroundColor: '#4ade80',
-        padding: 8,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
         borderRadius: 8,
     },
     deleteBtn: {
         backgroundColor: '#f87171',
-        padding: 8,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
         borderRadius: 8,
     },
     actionText: {

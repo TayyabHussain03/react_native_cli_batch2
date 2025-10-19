@@ -1,13 +1,21 @@
 import { getApp } from '@react-native-firebase/app';
-import { getFirestore } from '@react-native-firebase/firestore';
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+} from '@react-native-firebase/firestore';
 
-const firestore = getFirestore(getApp());
-const usersRef = firestore.collection('users');
+const db = getFirestore(getApp());
+const usersRef = collection(db, 'users');
 
 // ✅ CREATE
 export const addUser = async (userData) => {
     try {
-        await usersRef.add(userData);
+        await addDoc(usersRef, userData);
         return { success: true, message: 'User added successfully.' };
     } catch (error) {
         let message = '';
@@ -15,8 +23,11 @@ export const addUser = async (userData) => {
             case 'permission-denied':
                 message = 'You do not have permission to add data.';
                 break;
+            case 'invalid-argument':
+                message = 'Invalid user data format.';
+                break;
             default:
-                message = error.message;
+                message = error.message || 'Something went wrong while adding user.';
                 break;
         }
         return { success: false, message };
@@ -26,7 +37,7 @@ export const addUser = async (userData) => {
 // ✅ READ
 export const getUsers = async () => {
     try {
-        const snapshot = await usersRef.get();
+        const snapshot = await getDocs(usersRef);
         const users = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data(),
@@ -35,11 +46,11 @@ export const getUsers = async () => {
     } catch (error) {
         let message = '';
         switch (error.code) {
-            case 'unavailable':
-                message = 'Firestore service is currently unavailable.';
+            case 'permission-denied':
+                message = 'You do not have permission to read data.';
                 break;
             default:
-                message = error.message;
+                message = error.message || 'Something went wrong while fetching users.';
                 break;
         }
         return { success: false, message };
@@ -49,7 +60,8 @@ export const getUsers = async () => {
 // ✅ UPDATE
 export const updateUser = async (id, updateData) => {
     try {
-        await usersRef.doc(id).update(updateData);
+        const userDoc = doc(db, 'users', id);
+        await updateDoc(userDoc, updateData);
         return { success: true, message: 'User updated successfully.' };
     } catch (error) {
         let message = '';
@@ -61,7 +73,7 @@ export const updateUser = async (id, updateData) => {
                 message = 'You do not have permission to update this user.';
                 break;
             default:
-                message = error.message;
+                message = error.message || 'Something went wrong while updating user.';
                 break;
         }
         return { success: false, message };
@@ -71,7 +83,8 @@ export const updateUser = async (id, updateData) => {
 // ✅ DELETE
 export const deleteUser = async (id) => {
     try {
-        await usersRef.doc(id).delete();
+        const userDoc = doc(db, 'users', id);
+        await deleteDoc(userDoc);
         return { success: true, message: 'User deleted successfully.' };
     } catch (error) {
         let message = '';
@@ -83,7 +96,7 @@ export const deleteUser = async (id) => {
                 message = 'You do not have permission to delete this user.';
                 break;
             default:
-                message = error.message;
+                message = error.message || 'Something went wrong while deleting user.';
                 break;
         }
         return { success: false, message };

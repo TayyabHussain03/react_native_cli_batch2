@@ -513,7 +513,7 @@ import SwitchUI from './src/components/SwitchUi'
 import FirebaseRegister from './src/components/FirebaseRegister'
 import FirebaseLogin from './src/components/FirebaseLogin'
 import ResetPassword from './src/components/ResetPassword';
-
+import UserCRUD from './src/components/UserCRUD'
 
 
 
@@ -530,13 +530,15 @@ const App = () => {
     // <NativewindLogin/>
     // <FlipNatureCard />
     // <SwitchUI />
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Register" component={FirebaseRegister} />
-        <Stack.Screen name="Login" component={FirebaseLogin} />
-        <Stack.Screen name="ResetPassword" component={ResetPassword} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="Register" screenOptions={{ headerShown: false }}>
+    //     <Stack.Screen name="Register" component={FirebaseRegister} />
+    //     <Stack.Screen name="Login" component={FirebaseLogin} />
+    //     <Stack.Screen name="ResetPassword" component={ResetPassword} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+
+    <UserCRUD />
 
 
     // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
