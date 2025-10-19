@@ -8,12 +8,19 @@ import {
     Alert,
     StyleSheet,
 } from 'react-native';
+// import {
+//     addUser,
+//     getUsers,
+//     updateUser,
+//     deleteUser,
+// } from '../database/firestoreCRUD';
+
 import {
     addUser,
     getUsers,
     updateUser,
     deleteUser,
-} from '../database/firestoreCRUD';
+} from '../database/realtimeCRUD';
 
 const UserCRUD = () => {
     const [name, setName] = useState('');
