@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Kreon-Bold.ttf",
+      "sha1": "0b98041896cc5c47bf3f9afe5d019dc8d6c88ec1"
+    },
+    {
+      "path": "assets/fonts/Kreon-Light.ttf",
+      "sha1": "507e2c1426fc29abbb80036352f6880ff5b89d60"
+    },
+    {
+      "path": "assets/fonts/Kreon-Medium.ttf",
+      "sha1": "243e2aa3786a8911178b90e7444e947aa59b2987"
+    },
+    {
+      "path": "assets/fonts/Kreon-Regular.ttf",
+      "sha1": "8dd10e9e2d5538cb491a218c889bda45e8867c80"
+    },
+    {
+      "path": "assets/fonts/Kreon-SemiBold.ttf",
+      "sha1": "461b2348d436f750b66cff2c80af74c82c2043d3"
+    }
+  ]
+}

@@ -496,7 +496,7 @@
 
 // ✅ Importing React
 import React from 'react';
-import { Text } from 'react-native'
+import { Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -514,7 +514,7 @@ import FirebaseRegister from './src/components/FirebaseRegister'
 import FirebaseLogin from './src/components/FirebaseLogin'
 import ResetPassword from './src/components/ResetPassword';
 import UserCRUD from './src/components/UserCRUD'
-
+import IntroSlider from './src/components/IntroSlider'
 
 
 const Stack = createNativeStackNavigator();
@@ -538,7 +538,10 @@ const App = () => {
     //   </Stack.Navigator>
     // </NavigationContainer>
 
-    <UserCRUD />
+    // <UserCRUD />
+
+    <IntroSlider />
+
 
 
     // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
