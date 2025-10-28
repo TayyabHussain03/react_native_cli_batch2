@@ -515,6 +515,8 @@ import FirebaseLogin from './src/components/FirebaseLogin'
 import ResetPassword from './src/components/ResetPassword';
 import UserCRUD from './src/components/UserCRUD'
 import IntroSlider from './src/components/IntroSlider'
+import LoginScreen from './src/screens/FoodLogin/LoginScreen'
+import SignupScreen from './src/screens/FoodSignup/SignupScreen'
 
 
 const Stack = createNativeStackNavigator();
@@ -539,8 +541,14 @@ const App = () => {
     // </NavigationContainer>
 
     // <UserCRUD />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Intro" component={IntroSlider} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} />
+      </Stack.Navigator>
 
-    <IntroSlider />
+    </NavigationContainer>
 
 
 

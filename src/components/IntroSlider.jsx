@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, Image, StyleSheet, Dimensions, Pressable } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,6 +29,8 @@ const slides = [
 const IntroSlider = () => {
     const sliderRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const navigation = useNavigation();
+
 
     const renderItem = ({ item }) => (
         <View style={styles.slide}>
@@ -48,19 +51,44 @@ const IntroSlider = () => {
                 ))}
             </View>
 
-            <Pressable
-                style={styles.button}
-                onPress={() => {
-                    if (activeIndex < slides.length - 1) {
-                        sliderRef.current?.goToSlide(activeIndex + 1, true);
-                    }
-                }}
-            >
-                <Text style={styles.buttonText}>GET STARTED</Text>
-            </Pressable>
+            {activeIndex === slides.length - 1 ? (
+                <Pressable
+                    style={styles.button}
+                    onPress={() => {
+                        navigation.navigate('Login')
+                    }}
+                >
+                    <Text style={styles.buttonText}>GET STARTED</Text>
+                </Pressable>
+            ) : (
+                <View style={styles.navButtonsContainer}>
+                    <Pressable
+                        onPress={() => sliderRef.current?.goToSlide(activeIndex + 1, true)}
+                        style={({ pressed }) => [
+                            styles.navButton,
+                            pressed && styles.navButtonPressed,
+                        ]}
+                    >
+                        <Text style={styles.navButtonText}>Next</Text>
+                    </Pressable>
 
+                    <Pressable
+                        onPress={() => {
+                            navigation.navigate('Login')
+                        }}
+                        style={({ pressed }) => [
+                            styles.navButton,
+                            pressed && styles.navButtonPressed,
+                        ]}
+                    >
+                        <Text style={styles.navButtonText}>Skip</Text>
+                    </Pressable>
+                </View>
+            )}
         </View>
     );
+
+
 
     return (
         <AppIntroSlider
@@ -140,5 +168,31 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         letterSpacing: 1,
         fontFamily: 'Kreon-Bold'
+    },
+
+    navButtonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '80%',
+    },
+
+    navButton: {
+        borderWidth: 1,
+        borderColor: '#024220',
+        paddingVertical: 8,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+    },
+
+    navButtonPressed: {
+        opacity: 0.6,
+    },
+
+    navButtonText: {
+        color: '#024220',
+        fontSize: 16,
+        fontWeight: '600',
+        letterSpacing: 1,
+        fontFamily: 'Kreon-Bold',
     },
 });
