@@ -216,7 +216,7 @@ const SignupScreen = () => {
                                 style={{ fontWeight: '700', textDecorationLine: 'underline' }}
                                 onPress={() => navigation.navigate('Login')}
                             >
-                                LogIn
+                                Login
                             </Text>
                         </Text>
                     </View>
