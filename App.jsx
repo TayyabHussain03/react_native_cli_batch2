@@ -512,12 +512,12 @@ import FlipNatureCard from './src/components/FlipNatureCard'
 import SwitchUI from './src/components/SwitchUi'
 import FirebaseRegister from './src/components/FirebaseRegister'
 import FirebaseLogin from './src/components/FirebaseLogin'
-import ResetPassword from './src/components/ResetPassword';
+// import ResetPassword from './src/components/ResetPassword';
 import UserCRUD from './src/components/UserCRUD'
 import IntroSlider from './src/components/IntroSlider'
 import LoginScreen from './src/screens/FoodLogin/LoginScreen'
 import SignupScreen from './src/screens/FoodSignup/SignupScreen'
-
+import ResetPassword from './src/screens/FoodResetPass/ResetPassword'
 
 const Stack = createNativeStackNavigator();
 
@@ -546,8 +546,8 @@ const App = () => {
         <Stack.Screen name="Intro" component={IntroSlider} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
       </Stack.Navigator>
-
     </NavigationContainer>
 
 

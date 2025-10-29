@@ -106,4 +106,26 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500',
     },
+    errorText: {
+        color: 'red',
+        fontSize: 12,
+        marginBottom: 8,
+        marginLeft: 4,
+    },
+    eyeIcon: {
+        marginLeft: 8,
+    },
+
+    loaderContainer: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: [{ translateX: -25 }, { translateY: -25 }],
+        zIndex: 10,
+    },
+
+    loader: {
+        width: 50,
+        height: 50,
+    },
 });

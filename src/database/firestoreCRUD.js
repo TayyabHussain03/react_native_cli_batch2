@@ -6,6 +6,7 @@ import {
     addDoc,
     updateDoc,
     deleteDoc,
+    serverTimestamp,
     doc,
 } from '@react-native-firebase/firestore';
 
@@ -15,7 +16,10 @@ const usersRef = collection(db, 'users');
 // ✅ CREATE
 export const addUser = async (userData) => {
     try {
-        await addDoc(usersRef, userData);
+        await addDoc(usersRef, {
+            ...userData,
+            createdAt: serverTimestamp(),
+        });
         return { success: true, message: 'User added successfully.' };
     } catch (error) {
         let message = '';

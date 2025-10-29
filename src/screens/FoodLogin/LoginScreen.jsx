@@ -1,23 +1,75 @@
-import React from 'react';
-import { View, Text, TextInput, Pressable, StyleSheet, Image } from 'react-native';
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import {
+    View,
+    Text,
+    TextInput,
+    Pressable,
+    Image,
+    KeyboardAvoidingView,
+    ScrollView,
+    Platform,
+    ActivityIndicator,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
-import { styles } from '../styles'
+import { loginUser } from '../../services/auth';
+import { styles } from '../styles';
 
 const LoginScreen = () => {
     const navigation = useNavigation();
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [generalError, setGeneralError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleLogin = async () => {
+        setEmailError('');
+        setPasswordError('');
+        setGeneralError('');
+        setLoading(true);
+
+        if (!email.includes('@')) {
+            setEmailError('Please enter a valid email.');
+            setLoading(false);
+            return;
+        }
+
+        if (password.length < 6) {
+            setPasswordError('Password must be at least 6 characters.');
+            setLoading(false);
+            return;
+        }
+
+        const result = await loginUser(email, password);
+
+        if (result.success) {
+            setLoading(false);
+            // ✅ User logged in, stay on screen
+        } else {
+            switch (result.message) {
+                case 'No account found with this email.':
+                case 'Invalid email format.':
+                    setEmailError(result.message);
+                    break;
+                case 'Incorrect password.':
+                    setPasswordError(result.message);
+                    break;
+                default:
+                    setGeneralError(result.message);
+                    break;
+            }
+            setLoading(false);
+        }
+    };
+
     return (
-        <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={{ flex: 1 }}
-        >
-            <ScrollView
-                contentContainerStyle={{ flexGrow: 1 }}
-                keyboardShouldPersistTaps="handled"
-            >
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled">
                 <View style={styles.container}>
-                    {/* Logo and App Name */}
                     <View style={styles.header}>
                         <Image source={require('../../assets/rider.png')} style={styles.logo} />
                         <Text style={styles.appName}>Just EAT</Text>
@@ -25,35 +77,59 @@ const LoginScreen = () => {
 
                     <Text style={styles.heading}>Login Screen</Text>
 
-                    {/* Email Input */}
                     <View style={styles.inputWrapper}>
                         <Icon name="email-outline" size={20} color="#024220" />
-                        <TextInput placeholder="Enter Email Address" style={styles.input} placeholderTextColor="#024220" />
+                        <TextInput
+                            placeholder="Enter Email Address"
+                            style={styles.input}
+                            placeholderTextColor="#024220"
+                            value={email}
+                            onChangeText={setEmail}
+                            autoCapitalize="none"
+                            keyboardType="email-address"
+                            textContentType="emailAddress"
+                        />
                     </View>
+                    {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
 
-                    {/* Password Input */}
                     <View style={styles.inputWrapper}>
                         <Icon name="lock-outline" size={20} color="#024220" />
-                        <TextInput placeholder="Password" style={styles.input} placeholderTextColor="#024220" secureTextEntry />
+                        <TextInput
+                            placeholder="Password"
+                            style={styles.input}
+                            placeholderTextColor="#024220"
+                            secureTextEntry={!showPassword}
+                            value={password}
+                            onChangeText={setPassword}
+                            autoCapitalize="none"
+                            textContentType="password"
+                        />
+                        <Pressable onPress={() => setShowPassword(!showPassword)}>
+                            <Icon
+                                name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+                                size={20}
+                                color="#024220"
+                                style={styles.eyeIcon}
+                            />
+                        </Pressable>
                     </View>
+                    {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
+                    {generalError ? <Text style={styles.errorText}>{generalError}</Text> : null}
 
-                    <Text style={styles.link}>Forgot Password?</Text>
+                    <Text style={styles.link} onPress={() => navigation.navigate('ResetPassword')}>
+                        Forgot Password?
+                    </Text>
 
-                    {/* Login Button */}
-                    <Pressable style={styles.primaryButton}>
+                    <Pressable style={styles.primaryButton} onPress={handleLogin} disabled={loading}>
                         <Text style={styles.primaryButtonText}>LogIn</Text>
                     </Pressable>
 
                     <Text style={styles.subText}>New user for Just EAT</Text>
 
-                    {/* SignUp Button */}
-                    <Pressable style={styles.secondaryButton}
-                        onPress={() => navigation.navigate('Signup')}
-                    >
+                    <Pressable style={styles.secondaryButton} onPress={() => navigation.navigate('Signup')}>
                         <Text style={styles.secondaryButtonText}>SignUp Now</Text>
                     </Pressable>
 
-                    {/* Social Buttons */}
                     <View style={styles.socialRow}>
                         <Pressable style={styles.socialButton}>
                             <Icon name="google" size={20} color="#024220" />
@@ -65,6 +141,12 @@ const LoginScreen = () => {
                         </Pressable>
                     </View>
                 </View>
+
+                {loading && (
+                    <View style={styles.loaderContainer}>
+                        <ActivityIndicator size="large" color="#024220" />
+                    </View>
+                )}
             </ScrollView>
         </KeyboardAvoidingView>
     );
