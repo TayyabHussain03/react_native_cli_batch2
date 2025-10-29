@@ -550,8 +550,6 @@ const App = () => {
       </Stack.Navigator>
     </NavigationContainer>
 
-
-
     // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
   );
 };
