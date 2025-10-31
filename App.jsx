@@ -519,6 +519,8 @@ import LoginScreen from './src/screens/FoodLogin/LoginScreen'
 import SignupScreen from './src/screens/FoodSignup/SignupScreen'
 import ResetPassword from './src/screens/FoodResetPass/ResetPassword'
 import BottomTabs from './src/screens/BottomTab/BottomTabs'
+import FoodHeader from './src/components/FoodHeader'
+import FoodSearch from './src/components/FoodSearch'
 
 const Stack = createNativeStackNavigator();
 
@@ -542,15 +544,17 @@ const App = () => {
     // </NavigationContainer>
 
     // <UserCRUD />
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Intro" component={IntroSlider} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Signup" component={SignupScreen} />
-        <Stack.Screen name="ResetPassword" component={ResetPassword} />
-        <Stack.Screen name="BottomTabs" component={BottomTabs} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="Intro" screenOptions={{ headerShown: false }}>
+    //     <Stack.Screen name="Intro" component={IntroSlider} />
+    //     <Stack.Screen name="Login" component={LoginScreen} />
+    //     <Stack.Screen name="Signup" component={SignupScreen} />
+    //     <Stack.Screen name="ResetPassword" component={ResetPassword} />
+    //     <Stack.Screen name="BottomTabs" component={BottomTabs} options={{ headerShown: false }} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    // < FoodHeader/>
+    < FoodSearch />
 
     // <Text style={{ fontSize: 28, fontWeight: "bold", textAlign: "center", color:"white" }}>Firebase Added Successfully</Text>
   );
