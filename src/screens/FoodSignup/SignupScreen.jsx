@@ -104,7 +104,7 @@ const SignupScreen = () => {
                         <Text style={styles.appName}>Just EAT</Text>
                     </View>
 
-                    <Text style={styles.heading}>Signup Screen</Text>
+                    <Text style={styles.heading}>Signup</Text>
 
                     {/* Email */}
                     <View style={styles.inputWrapper}>
@@ -192,7 +192,11 @@ const SignupScreen = () => {
                     {generalError ? <Text style={styles.errorText}>{generalError}</Text> : null}
 
                     {/* SignUp Button */}
-                    <Pressable style={styles.primaryButton} onPress={handleSignup} disabled={loading}>
+                    <Pressable style={({ pressed }) => [
+                        styles.primaryButton,
+                        pressed && { opacity: 0.7 },
+                    ]}
+                        onPress={handleSignup} disabled={loading}>
                         <Text style={styles.primaryButtonText}>SignUp</Text>
                     </Pressable>
 

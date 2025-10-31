@@ -48,7 +48,10 @@ const LoginScreen = () => {
 
         if (result.success) {
             setLoading(false);
-            // ✅ User logged in, stay on screen
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'BottomTabs' }],
+            });
         } else {
             switch (result.message) {
                 case 'No account found with this email.':
@@ -75,7 +78,7 @@ const LoginScreen = () => {
                         <Text style={styles.appName}>Just EAT</Text>
                     </View>
 
-                    <Text style={styles.heading}>Login Screen</Text>
+                    <Text style={styles.heading}>Login</Text>
 
                     <View style={styles.inputWrapper}>
                         <Icon name="email-outline" size={20} color="#024220" />
@@ -120,13 +123,22 @@ const LoginScreen = () => {
                         Forgot Password?
                     </Text>
 
-                    <Pressable style={styles.primaryButton} onPress={handleLogin} disabled={loading}>
+                    <Pressable android_ripple={{ color: '#ffffff30' }}
+                        style={({ pressed }) => [
+                            styles.primaryButton,
+                            pressed && { opacity: 0.7 },
+                        ]}
+                        onPress={handleLogin} disabled={loading}>
                         <Text style={styles.primaryButtonText}>LogIn</Text>
                     </Pressable>
 
                     <Text style={styles.subText}>New user for Just EAT</Text>
 
-                    <Pressable style={styles.secondaryButton} onPress={() => navigation.navigate('Signup')}>
+                    <Pressable style={({ pressed }) => [
+                        styles.secondaryButton,
+                        pressed && { opacity: 0.7 },
+                    ]}
+                        onPress={() => navigation.navigate('Signup')}>
                         <Text style={styles.secondaryButtonText}>SignUp Now</Text>
                     </Pressable>
 

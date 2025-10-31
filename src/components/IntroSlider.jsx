@@ -53,7 +53,12 @@ const IntroSlider = () => {
 
             {activeIndex === slides.length - 1 ? (
                 <Pressable
-                    style={styles.button}
+                    android_ripple={{ color: '#ffffff30' }}
+                    style={({ pressed }) => [
+                        styles.button,
+                        pressed && { opacity: 0.7 },
+                    ]}
+
                     onPress={() => {
                         navigation.navigate('Login')
                     }}

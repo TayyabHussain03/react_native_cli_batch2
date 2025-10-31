@@ -518,6 +518,7 @@ import IntroSlider from './src/components/IntroSlider'
 import LoginScreen from './src/screens/FoodLogin/LoginScreen'
 import SignupScreen from './src/screens/FoodSignup/SignupScreen'
 import ResetPassword from './src/screens/FoodResetPass/ResetPassword'
+import BottomTabs from './src/screens/BottomTab/BottomTabs'
 
 const Stack = createNativeStackNavigator();
 
@@ -547,6 +548,7 @@ const App = () => {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="BottomTabs" component={BottomTabs} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
 
