@@ -7,7 +7,7 @@ const { width } = Dimensions.get('window');
 const FoodHeader = () => (
     <View style={styles.headerBar}>
         <TouchableOpacity style={styles.locationWrapper} onPress={() => console.log('Address clicked')}>
-            <Icon name="map-marker-outline" size={22} color="#024220" style={styles.locationIcon} />
+            <Icon name="map-marker-outline" size={24} color="#ffffff" style={styles.locationIcon} />
             <View>
                 <Text style={styles.homeText}>Home</Text>
                 <Text style={styles.addressText}>G-21 Shakeel Corporation</Text>
@@ -16,10 +16,10 @@ const FoodHeader = () => (
 
         <View style={styles.iconRow}>
             <TouchableOpacity activeOpacity={0.6} onPress={() => console.log('Heart clicked')}>
-                <Icon name="heart-outline" size={24} color="#024220" />
+                <Icon name="heart-outline" size={24} color="#ffffff" />
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={0.6} onPress={() => console.log('Bag clicked')}>
-                <Icon name="shopping-outline" size={24} color="#024220" />
+                <Icon name="shopping-outline" size={24} color="#ffffff" />
             </TouchableOpacity>
         </View>
     </View>
@@ -32,15 +32,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingHorizontal: width * 0.05,
-        paddingVertical: 12,
-        backgroundColor: '#FFFFFF',
+        paddingHorizontal: width * 0.04,
+        paddingVertical: 15,
     },
 
     locationWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 8,
+        gap: 10,
     },
 
     locationIcon: {
@@ -49,13 +48,13 @@ const styles = StyleSheet.create({
 
     homeText: {
         fontSize: 14,
-        color: '#024220',
+        color: '#ffffff',
         fontFamily: 'Kreon-Bold',
     },
 
     addressText: {
         fontSize: 12,
-        color: '#024220',
+        color: '#ffffff',
         fontFamily: 'Kreon-Light',
     },
 

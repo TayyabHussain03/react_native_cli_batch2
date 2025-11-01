@@ -9,12 +9,7 @@ import {
 } from 'react-native';
 import { CurvedBottomBar } from 'react-native-curved-bottom-bar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-const FoodScreen = () => (
-    <View style={[styles.screen, { backgroundColor: '#F0FFF0' }]}>
-        <Text style={styles.screenText}>Food Screen</Text>
-    </View>
-);
+import FoodScreen from '../FoodScreen/FoodScreen'
 
 const GroceryScreen = () => (
     <View style={[styles.screen, { backgroundColor: '#FFF8DC' }]}>
@@ -68,48 +63,49 @@ export default function BottomTabs() {
     };
 
     return (
-            <CurvedBottomBar.Navigator
-                type="UP"
-                style={styles.bottomBar}
-                shadowStyle={styles.shadow}
-                height={60}
-                circleWidth={55}
-                bgColor="white"
-                initialRouteName="Food"
-                borderTopLeftRight
-                renderCircle={({ selectedTab, navigate }) => (
-                    <Animated.View style={styles.btnCircleUp}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={() => Alert.alert('Search clicked')}
-                        >
-                            <Icon name="magnify" size={32} color="#FFFFFF" />
-                        </TouchableOpacity>
-                    </Animated.View>
-                )}
-                tabBar={renderTabBar}
-            >
-                <CurvedBottomBar.Screen
-                    name="Food"
-                    position="LEFT"
-                    component={FoodScreen}
-                />
-                <CurvedBottomBar.Screen
-                    name="Grocery"
-                    position="LEFT"
-                    component={GroceryScreen}
-                />
-                <CurvedBottomBar.Screen
-                    name="Orders"
-                    position="RIGHT"
-                    component={OrdersScreen}
-                />
-                <CurvedBottomBar.Screen
-                    name="Account"
-                    position="RIGHT"
-                    component={AccountScreen}
-                />
-            </CurvedBottomBar.Navigator>
+        <CurvedBottomBar.Navigator
+            type="UP"
+            style={styles.bottomBar}
+            shadowStyle={styles.shadow}
+            height={60}
+            screenOptions={{ headerShown: false }}
+            circleWidth={55}
+            bgColor="white"
+            initialRouteName="Food"
+            borderTopLeftRight
+            renderCircle={({ selectedTab, navigate }) => (
+                <Animated.View style={styles.btnCircleUp}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => Alert.alert('Search clicked')}
+                    >
+                        <Icon name="magnify" size={32} color="#FFFFFF" />
+                    </TouchableOpacity>
+                </Animated.View>
+            )}
+            tabBar={renderTabBar}
+        >
+            <CurvedBottomBar.Screen
+                name="Food"
+                position="LEFT"
+                component={FoodScreen}
+            />
+            <CurvedBottomBar.Screen
+                name="Grocery"
+                position="LEFT"
+                component={GroceryScreen}
+            />
+            <CurvedBottomBar.Screen
+                name="Orders"
+                position="RIGHT"
+                component={OrdersScreen}
+            />
+            <CurvedBottomBar.Screen
+                name="Account"
+                position="RIGHT"
+                component={AccountScreen}
+            />
+        </CurvedBottomBar.Navigator>
     );
 }
 

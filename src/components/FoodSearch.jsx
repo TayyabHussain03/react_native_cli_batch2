@@ -23,22 +23,26 @@ const styles = StyleSheet.create({
     searchBar: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#D6FFD9',
-        borderRadius: 20,
-        paddingHorizontal: width * 0.04,
-        paddingVertical: 10,
-        marginHorizontal: width * 0.05,
+        backgroundColor: '#ffffff',
+        borderRadius: 30,
+        paddingHorizontal: width * 0.05,
+        width: width * 0.9, // occupies 90% of screen width
+        alignSelf: 'center', // centers horizontally
         marginTop: 12,
-        elevation: 2,
+        elevation: 3,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.15,
+        shadowRadius: 3,
     },
 
     searchIcon: {
-        marginRight: 8,
+        marginRight: 10,
     },
 
     searchInput: {
         flex: 1,
-        fontSize: 14,
+        fontSize: 15,
         color: '#024220',
         fontFamily: 'Kreon-Regular',
     },
